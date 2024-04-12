@@ -210,7 +210,7 @@ read -p "Enter server name/SNI (default: telewebion.com): " server_name
 server_name=${server_name:-telewebion.com}
 
 # Retrieve the server IP address
-server_ip=$(curl -s https://api.ipify.org)
+server_ip=${server_ip: -b.hadiatabey.eu.org}
 
 # Create reality.json using jq
 jq -n --arg listen_port "$listen_port" --arg server_name "$server_name" --arg private_key "$private_key" --arg short_id "$short_id" --arg uuid "$uuid" --arg server_ip "$server_ip" '{
